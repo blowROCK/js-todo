@@ -1,0 +1,243 @@
+@import "./_normalize.css";
+
+:root{
+    --main-bg-color: #314555;
+    --main-gray-color: #ececec;
+    --todo-white-color: #ffffff;
+    --todo-do-color: #0394fd;
+    --todo-done-color: #fd0375;
+    --text-bg-color: #f3f3f3;
+    --btn-cancle-color: #ff5656;
+    --btn-submit-color: #55a7ff;
+}
+#todo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--main-bg-color);
+}
+.todo__container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 800px;
+    border-radius: 5px;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    background: var(--todo-white-color);
+}
+.todo__container__header{
+    height: 138px;
+    padding: 20px;
+    text-align: center;
+}
+.todo__container__contents__header__btn{
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.todo__container__header__year{
+    font-size: 2rem;
+}
+.todo__container__header__month{
+    padding: 10px 0;
+    font-size: 1.5rem;
+}
+.todo__container__header__week{
+    display: flex;
+    position: relative;
+    height: 55px;
+    align-items: center;
+    justify-content: space-between;
+}
+.todo__container__header__week__arrows{
+    display: flex;
+    width: 4%;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+}
+.todo__container__header__week__arrows div{
+    width: 100%;
+}
+.todo__container__header__week__days{
+    display: flex;
+    width: 82%;
+    padding: 10px;
+    margin: 0;
+    justify-content: space-between;
+}
+.todo__container__header__week__days li{
+    position: relative;
+    cursor: pointer;
+}
+.todo__container__header__week__days li:first-child{
+    color: red;
+}
+.todo__container__header__week__days .TODAY:after{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 50%;
+    top: 120%;
+    transform: translateX(-50%);
+    border-radius: 100%;
+    background: var(--todo-done-color);
+}
+.todo__container__header__week__days .SELECTED{
+    position: relative;
+}
+.todo__container__header__week__days .SELECTED::before{
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    top: 42%;
+    left: 50%;
+    background: #ccc;
+    border-radius: 50%;
+    opacity: 0.4;
+    transform: translate(-50%,-50%);
+}
+
+.todo__container__contents{
+    height: 662px;
+    overflow-y: scroll;
+}
+.todo__container__contents__todoList ul{
+    padding: 0 15px;
+    margin: 0;
+}
+.todo__container__contents__todoList ul li{
+    display: flex;
+    padding: 10px 0;
+    align-items: baseline;
+    font-size: 1.4rem;
+    font-weight: normal;
+    cursor: pointer;
+    border-top: 1px solid var(--main-gray-color);
+    border-bottom: 1px solid var(--main-gray-color);
+}
+.todo__container__contents__todoList ul li:first-child{
+    border-top: none;
+}
+.todo__container__contents__todoList ul li:last-child{
+    border-bottom: none;
+}
+.todo__container__contents__todoList ul li span{
+    margin-right: 15px;
+    cursor: pointer;
+}
+.todo__container__contents__todoList ul li > div{
+    margin: 0;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+    font-size: 1.2rem;
+}
+.todo__container__contents__todoList #done ul li div{
+    text-decoration: line-through;
+}
+.todoList__title{
+    text-align: center;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: var(--main-gray-color);
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 2px solid #cecece;
+}
+.todoList__title.do{
+    color: var(--todo-do-color);
+}
+.todoList__title.done{
+    color: var(--todo-done-color);
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.modal.active{
+    display: block;
+}
+.modal.modify #delete{
+    display: block;
+}
+.modal.modify #submit{
+    /*width: 50%;*/
+}
+.modal__content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 4px;
+    border-radius: 5px;
+    transform: translate(-50%,-50%);
+    background: var(--todo-white-color);
+    z-index: 1;
+}
+.modal__content__textBox{
+    position: relative;
+}
+.modal__content__textBox_tooltip{
+    padding: 12px;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal__content__textBox__delete{
+    display: none;
+    background: var(--btn-cancle-color);
+}
+.modal__content__textBox__submit{
+    background: var(--btn-submit-color);
+}
+.modal__content__textBox__textarea{
+    width: 400px;
+    height: 500px;
+    padding: 15px 20px;
+    resize: none;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background: var(--text-bg-color);
+}
+.modal__content__textBox__textarea::placeholder{
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 15px;
+}
+.modal__content__btnBox{
+    display: flex;
+}
+.modal__content__btnBox div{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding: 14px 5px 10px 5px;
+    margin-right: 4px;
+    border-radius: 3px;
+}
+.modal__back{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    top: 0;
+    left: 0;
+    position: absolute;
+}

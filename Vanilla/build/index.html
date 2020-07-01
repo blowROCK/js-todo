@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>TO-DO</title>
+</head>
+<body>
+
+    <div class="todo" id="todo">
+    <div class="todo__container">
+        <div class="todo__container__header">
+            <div id="addItemBtn" class="todo__container__contents__header__btn"><i class="fa fa-plus"></i></div>
+            <div id="year" class="todo__container__header__year"></div>
+            <div id="month" class="todo__container__header__month"></div>
+            <div class="todo__container__header__week">
+                <div id="left" class="todo__container__header__week__arrows ">
+                    <div><</div>
+                </div>
+                <ul id="week" class="todo__container__header__week__days"></ul>
+                <div id="right" class="todo__container__header__week__arrows right">
+                    <div>></div>
+                </div>
+            </div>
+        </div>
+        <div class="todo__container__contents">
+            <div class="todo__container__contents__todoList">
+                <div id="do" class="todo__container__contents__todoList">
+                    <div class="todoList__title do">To Do</div>
+                    <ul id="doUl">
+                    </ul>
+                </div>
+                <div id="done" class="todo__container__contents__todoList">
+                    <div class="todoList__title done">Done</div>
+                    <ul id="doneUl">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="modal" id="modal">
+    <div class="modal__content">
+        <div class="modal__content__textBox">
+            <textarea id="textarea" class="modal__content__textBox__textarea" placeholder="내용을 입력 하세요." maxlength="120"></textarea>
+            <div id="tooltip" class="modal__content__textBox_tooltip"></div>
+        </div>
+        <div class="modal__content__btnBox">
+            <div id="delete" class="modal__content__textBox__delete">Delete</div>
+            <div id="submit" class="modal__content__textBox__submit" onclick="test()">Submit</div>
+        </div>
+    </div>
+    <div class="modal__back"></div>
+</div>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

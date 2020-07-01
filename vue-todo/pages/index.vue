@@ -1,0 +1,44 @@
+<template>
+  <div class="todo" id="todo">
+    <div class="todo__container">
+      <div class="todo__container__header">
+        <div id="addItemBtn" class="todo__container__contents__header__btn"><i class="fa fa-plus"></i></div>
+        <div id="year" class="todo__container__header__year"></div>
+        <div id="month" class="todo__container__header__month"></div>
+        <div class="todo__container__header__week">
+          <div id="left" class="todo__container__header__week__arrows ">
+            <div><</div>
+          </div>
+          <ul id="week" class="todo__container__header__week__days"></ul>
+          <div id="right" class="todo__container__header__week__arrows right">
+            <div>></div>
+          </div>
+        </div>
+      </div>
+      <div class="todo__container__contents">
+        <div class="todo__container__contents__todoList">
+          <div id="do" class="todo__container__contents__todoList">
+            <div class="todoList__title do">To Do</div>
+            <ul id="doUl">
+            </ul>
+          </div>
+          <div id="done" class="todo__container__contents__todoList">
+            <div class="todoList__title done">Done</div>
+            <ul id="doneUl">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</template>
+
+<script>
+export default {}
+</script>
+
+<style>
+@import "assets/style.css";
+</style>
